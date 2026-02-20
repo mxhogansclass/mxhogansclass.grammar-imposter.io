@@ -542,6 +542,8 @@ function startWritePhase(game) {
   document.getElementById('write-input').placeholder=amImp?'Write something that sounds like it fits…':'Write a sentence that fits the prompt…';
   document.getElementById('end-timer-btn').classList.toggle('hidden', !isHost);
   showScreen('screen-write');
+    document.getElementById('write-input').oninput = function() {
+    myAnswer = this.value; };
   runTimer(game.timerSecs||60, ()=>onTimerDone(game));
 }
 
